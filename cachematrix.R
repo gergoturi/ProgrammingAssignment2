@@ -20,9 +20,6 @@ makeCacheMatrix <- function(x = matrix()) {
          getinverse = getinverse)
 }
   
-  
-
-
 
 ## This function computes the inverse of the special
 ## "matrix" returned by `makeCacheMatrix` above. If the inverse has
@@ -32,13 +29,13 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 
-    m <- x$getinverse()
-    if(!is.null(m)) {
+    m.i <- x$getinverse()
+    if(!is.null(m.i)) {
       message("getting cached data")
-      return(m)
+      return(m.i)
     }
     data <- x$get()
-    m <- solve(data, ...)
-    x$setsolve(m)
-    m
+    m.i <- solve(data, ...)
+    x$setsolve(m.i)
+    m.i
 }
